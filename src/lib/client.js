@@ -27,7 +27,7 @@ var StreamClient = function() {
 };
 
 StreamClient.prototype = {
-  baseUrl: 'https://api.getstream.io/api/',
+  baseUrl: 'https://geo.getstream.io/api/',
   baseAnalyticsUrl: 'https://analytics.getstream.io/analytics/',
 
   initialize: function(apiKey, apiSecret, appId, options) {
@@ -59,13 +59,13 @@ StreamClient.prototype = {
     this.subscriptions = {};
     this.expireTokens = this.options.expireTokens ? this.options.expireTokens : false;
     // which data center to use
-    this.location = this.options.location;
-    
-    var protocol = this.options.protocol || 'https';
-    
-    if (this.location) {
-        this.baseUrl = protocol + '://' + this.location + '-api.getstream.io/api/';
-    }
+    // this.location = this.options.location;
+    //
+    // var protocol = this.options.protocol || 'https';
+    //
+    // if (this.location) {
+    //     this.baseUrl = protocol + '://' + this.location + '-api.getstream.io/api/';
+    // }
 
     if (typeof (process) !== 'undefined' && process.env.LOCAL) {
       this.baseUrl = 'http://localhost:8000/api/';
